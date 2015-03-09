@@ -8,16 +8,16 @@
 .search-box {
   float:left;
   clear:left;
-  width:70%;
+  width:49%;
   padding:0.4em;
   font-size:1em;
   color:#555;
 }
 
-.list-count {
+.list-count, .item-count{
   float:left;
   text-align:center;
-  width:30%;
+  width:25%;
   padding:0.5em;
   color:#ECECEC;
 }

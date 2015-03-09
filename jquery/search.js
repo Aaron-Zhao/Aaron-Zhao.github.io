@@ -1,82 +1,75 @@
 $(document).ready(function() {
-
-  var jobCount = $('#list .in').length;
-  $('.list-count').text(jobCount + ' items');
-    
+  //class .in for departments, class .itemin for department items
+  //initialize number of departments listed based on <h2> tag
+  $('.list-count').text($('#list h2').length + ' departments');
+  //initialize number of items listed based on <a> tag
+  $('.item-count').text($('#list a').length + ' items');
   
+  //called when something get typed in
   $("#search-text").keyup(function () {
-     //$(this).addClass('hidden');
   
     var searchTerm = $("#search-text").val();
-    //var listItem = $('#list').children('li');
-  
-    
     var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
     
       //extends :contains to be case insensitive
-  $.extend($.expr[':'], {
-  'containsi': function(elem, i, match, array)
-  {
-    return (elem.textContent || elem.innerText || '').toLowerCase()
-    .indexOf((match[3] || "").toLowerCase()) >= 0;
-  }
-});
+    $.extend($.expr[':'], {
+	  'containsi': function(elem, i, match, array)
+	  {
+		return (elem.textContent || elem.innerText || '').toLowerCase()
+		.indexOf((match[3] || "").toLowerCase()) >= 0;
+	  }
+	});
     
-    // search for h2 tag (dish title)
+	
     $("#list h2").not(":containsi('" + searchSplit + "')").each(function(e)   {
-      $(this).parent().addClass('hiding out').removeClass('in');  //remove li tag regarding h2
-      setTimeout(function() {
+      $(this).parent().addClass('hiding out').removeClass('in');  //remove <li> tag based on <h2>
+      setTimeout(function() {	//transition
           $('.out').addClass('hidden');
         }, 300);
     });
-    
+	
+	$("#list a").not(":containsi('" + searchSplit + "')").each(function(e)   {
+	  $(this).addClass('hidden').removeClass('itemin');  //hide <a> tag based on <a>
+	  $(this).next().addClass('hidden'); //hide <br> tag that is after this <a>
+    });
+	  
     $("#list h2:containsi('" + searchSplit + "')").each(function(e) {
-      $(this).parent().removeClass('hidden out').addClass('in');
+      $(this).parent().removeClass('hidden out').addClass('in');		//show <li> tag based on <h2>
+	  $(this).parent().children("a").removeClass('hidden').addClass('itemin'); //show all <a> child tags based on <h2>
+	  $(this).parent().children("br").removeClass('hidden'); //show all <br> child tags
       setTimeout(function() {
           $('.in').removeClass('hiding');
         }, 1);
     });
     
-  
-      var jobCount = $('#list .in').length;
-    $('.list-count').text(jobCount + ' items');
+	$("#list a:containsi('" + searchSplit + "')").each(function(e) {
+      $(this).parent().removeClass('hidden out').addClass('in');//show <li> tag based on <a>
+	  $(this).removeClass('hidden').addClass('itemin');//show this <a> tag based on <a>
+	  $(this).next().removeClass('hidden'); //show <br> tag that is after this <a>
+      setTimeout(function() {
+          $('.in').removeClass('hiding');
+        }, 1);
+	
+    });
     
-    //shows empty state text when no jobs found
-    if(jobCount == '0') {
+	//update department count based on .in class
+    $('.list-count').text($('#list .in').length + ' departments');
+	//update department count based on .itemin class
+    $('.item-count').text($('#list .itemin').length + ' items');
+	
+    //shows empty state text when no department found
+    if($('#list .in').length == '0') {
       $('#list').addClass('empty');
     }
     else {
       $('#list').removeClass('empty');
     }
     
-  });
+  }); //keyup() end
 
-  
-                  
-     /*  
-     An extra! This function implements
-     jQuery autocomplete in the searchbox.
-     Uncomment to use :)
-     
-     
- function searchList() {                
-    //array of list items
-    var listArray = [];
-  
-     $("#list li").each(function() {
-    var listText = $(this).text().trim();
-      listArray.push(listText);
-    });
-    
-    $('#search-text').autocomplete({
-        source: listArray
-    });
-    
-    
-  }
-                                   
-  searchList();
-*/
+
+
+
   
                     
 });
