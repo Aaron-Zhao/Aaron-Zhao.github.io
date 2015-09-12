@@ -3,7 +3,7 @@ $(document).ready(function() {
   //initialize number of departments listed based on <h2> tag
   $('.list-count').text($('#list h2').length + ' projects');
   //initialize number of items listed based on <a> tag
-  $('.item-count').text($('#list a').length + ' Technologies');
+  $('.item-count').text($('#list a').length + ' technologies');
   
   //called when something get typed in
   $("#search-text").keyup(function () {
@@ -28,10 +28,10 @@ $(document).ready(function() {
         }, 300);
     });
 	
-	$("#list a").not(":containsi('" + searchSplit + "')").each(function(e)   {
-	  $(this).addClass('hidden').removeClass('itemin');  //hide <a> tag based on <a>
-	  $(this).next().addClass('hidden'); //hide <br> tag that is after this <a>
-    });
+	//$("#list a").not(":containsi('" + searchSplit + "')").each(function(e)   {
+	//  $(this).addClass('hidden').removeClass('itemin');  //hide <a> tag based on <a>
+	//  $(this).next().addClass('hidden'); //hide <br> tag that is after this <a>
+    //});
 	  
     $("#list h2:containsi('" + searchSplit + "')").each(function(e) {
       $(this).parent().removeClass('hidden out').addClass('in');		//show <li> tag based on <h2>
@@ -53,9 +53,9 @@ $(document).ready(function() {
     });
     
 	//update department count based on .in class
-    $('.list-count').text($('#list .in').length + ' departments');
+    $('.list-count').text($('#list .in').length + ' projects');
 	//update department count based on .itemin class
-    $('.item-count').text($('#list .itemin').length + ' items');
+    $('.item-count').text($('#list .itemin').length + ' technologies');
 	
     //shows empty state text when no department found
     if($('#list .in').length == '0') {

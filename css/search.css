@@ -5,6 +5,13 @@
   float:left;
   color:#00BDE8;
 }
+
+.list-wrap p {
+	margin: 15px;
+	font-size: 12px;
+	text-align: left;
+}
+
 .search-box {
   float:left;
   clear:left;
@@ -62,7 +69,7 @@ ul {
 }
 
 ul:before {
-  content:'----------';
+  content:'';
   position:absolute;
   left:-8.8em;
   font-size:2em;
