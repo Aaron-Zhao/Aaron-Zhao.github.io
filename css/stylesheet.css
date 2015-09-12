@@ -397,6 +397,10 @@ Small Device Styles
     display: none;
   }
   
+  .outer{
+	padding: 0px 2px 0px 2px;
+  }
+  
   .inner {
     min-width: 320px;
     max-width: 480px;
