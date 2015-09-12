@@ -389,11 +389,8 @@ Small Device Styles
 @media screen and (max-width: 480px) {
   body {
     font-size:14px;
-	width: 100%;
+	width: 95%;
   }
-
-  h1 { color: red !important;}
-  
   
   #downloads {
     display: none;
