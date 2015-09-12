@@ -395,10 +395,6 @@ Small Device Styles
   #downloads {
     display: none;
   }
-
-  .cd-top{
-	visibility: hidden;
-  }
   
   .inner {
     min-width: 320px;
