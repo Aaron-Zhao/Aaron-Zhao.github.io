@@ -396,9 +396,10 @@ Small Device Styles
   #downloads {
     display: none;
   }
-  
-  .outer{
-	padding: 0px 2px 0px 2px;
+  .cd-top.cd-is-visible {
+	  /* the button becomes hidden for small device */
+	  visibility: hidden;
+	  width: 0px;
   }
   
   .inner {
