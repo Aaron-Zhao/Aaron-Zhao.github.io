@@ -68,18 +68,6 @@ ul {
   position:relative;
 }
 
-ul:before {
-  content:'';
-  position:absolute;
-  left:-8.8em;
-  font-size:2em;
-  text-align:right;
-  top:15em;
-  color:#D1D1D1;
-  font-weight:bold;
-  font-family: 'Maven Pro', sans-serif;
-  transform:rotate(45deg);
-}
 
 li {
   float:left;
@@ -138,14 +126,6 @@ The following are styles purely for the surroundings
 */
 
 
-
-body {
-  background-color: rgb(69,69,69);
-  font-family:'Open Sans', sans-serif;
-  margin:0;
-  padding:0;
-  font-size:1em;
-}
 
 a {color:#00BDE8;}
 

@@ -387,7 +387,6 @@ Small Device Styles
 *******************************************************************************/
 
 @media screen and (max-width: 480px) {
-html { width: 100%; }
 
   body {
     font-size:14px;
