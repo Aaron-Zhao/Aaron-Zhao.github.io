@@ -62,7 +62,7 @@ ul {
 }
 
 ul:before {
-  content:'bg-context';
+  content:'----------';
   position:absolute;
   left:-8.8em;
   font-size:2em;
@@ -71,7 +71,7 @@ ul:before {
   color:#D1D1D1;
   font-weight:bold;
   font-family: 'Maven Pro', sans-serif;
-  transform:rotate(-90deg);
+  transform:rotate(45deg);
 }
 
 li {
@@ -171,9 +171,9 @@ font-style:italic;
 
 .list-wrap {
   float:left;
-  width:40%;
-  margin:2em 30%;
-  padding:2em 0;
+  width:98%;
+  margin:10px;
+  padding:2em 0 2em 0;
 }
 
 p {
@@ -249,7 +249,7 @@ p {
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
-  background: rgba(232, 98, 86, 0.8) url(http://codyhouse.co/demo/back-to-top/img/cd-top-arrow.svg) no-repeat center 50%;
+  background: rgba(232, 98, 86, 0.8) url(../images/cd-top-arrow.svg) no-repeat center 50%;
   visibility: hidden;
   opacity: 0;
   -webkit-transition: all 0.3s;

@@ -1,9 +1,9 @@
 $(document).ready(function() {
   //class .in for departments, class .itemin for department items
   //initialize number of departments listed based on <h2> tag
-  $('.list-count').text($('#list h2').length + ' departments');
+  $('.list-count').text($('#list h2').length + ' projects');
   //initialize number of items listed based on <a> tag
-  $('.item-count').text($('#list a').length + ' items');
+  $('.item-count').text($('#list a').length + ' Technologies');
   
   //called when something get typed in
   $("#search-text").keyup(function () {
