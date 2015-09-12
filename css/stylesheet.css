@@ -396,6 +396,10 @@ Small Device Styles
     display: none;
   }
 
+  .cd-top{
+	visibility: hidden;
+  }
+  
   .inner {
     min-width: 320px;
     max-width: 480px;
