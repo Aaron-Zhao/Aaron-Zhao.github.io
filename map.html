@@ -2,7 +2,7 @@
   <head>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
     <link rel="stylesheet" type="text/css" href="./semantic/dist/semantic.min.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
     <script src="./semantic/dist/semantic.min.js"></script>
     <title>Map</title>
     <style>
@@ -50,8 +50,6 @@
           startPos = position;
           var lat = startPos.coords.latitude;
           var lng = startPos.coords.longitude;
-          console.log(lat);
-          console.log(lng);
 
           if(userLocation !== undefined && userLocation !== null){
             mymap.removeLayer(userLocation)
