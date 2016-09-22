@@ -62,7 +62,7 @@
           mymap.fitBounds([[lat, lng]]);
           userLocationCircle = L.circle([lat, lng], (25)).addTo(mymap);
           userLocation = L.marker([lat, lng], {icon: greenIcon}).addTo(mymap)
-            .bindPopup("<b>" + "You're here" + "</b>").openPopup();
+            .bindPopup("<b>" + "You're approximately here" + "</b>").openPopup();
         };
         
         navigator.geolocation.getCurrentPosition(geoSuccess);
