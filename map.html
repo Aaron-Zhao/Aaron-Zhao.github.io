@@ -60,10 +60,10 @@
 				var radius = e.accuracy / 2;
 
 				if(userLocation !== undefined && userLocation !== null){
-					map.removeLayer(userLocation)
+					map.removeLayer(userLocation);
 				}
 				if(userLocationCircle !== undefined && userLocationCircle !== null){
-					map.removeLayer(userLocationCircle)
+					map.removeLayer(userLocationCircle);
 				}
 
 				userLocation = L.marker(e.latlng).addTo(map).bindPopup("You are within " + radius + " meters from this point").openPopup();
