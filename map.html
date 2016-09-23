@@ -82,7 +82,7 @@
           findMeIcon.style.display ='flex'
           findMeIcon.id = 'arrow'
           findMeIcon.innerHTML = '<i class="large location arrow icon" style="margin: auto auto;"></i>'
-          findMeIcon.onclick = () => {
+          findMeIcon.onclick = function () {
             getUserLocation();
           }
           return findMeIcon;
