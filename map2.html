@@ -35,25 +35,25 @@
 			id: 'mapbox.streets'
 		}).addTo(map);
 
-    var findMe = L.Control.extend({
-      options: {
-        position: 'topleft'
-      },
-      onAdd: function(map) {
-        var findMeIcon = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom')
-        findMeIcon.style.backgroundColor = 'white'
-        findMeIcon.style.width = '26px'
-        findMeIcon.style.height = '26px'
-        findMeIcon.style.display ='flex'
-        findMeIcon.id = 'arrow'
-        findMeIcon.innerHTML = '<i class="large location arrow icon" style="margin: auto auto;"></i>'
-        findMeIcon.onclick = () => {
-          map.locate({setView: true, maxZoom: 16});
-        }
-        return findMeIcon;
-      }
-    });
-    map.addControl(new findMe());
+    // var findMe = L.Control.extend({
+    //   options: {
+    //     position: 'topleft'
+    //   },
+    //   onAdd: function(map) {
+    //     var findMeIcon = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom')
+    //     findMeIcon.style.backgroundColor = 'white'
+    //     findMeIcon.style.width = '26px'
+    //     findMeIcon.style.height = '26px'
+    //     findMeIcon.style.display ='flex'
+    //     findMeIcon.id = 'arrow'
+    //     findMeIcon.innerHTML = '<i class="large location arrow icon" style="margin: auto auto;"></i>'
+    //     findMeIcon.onclick = () => {
+    //       map.locate({setView: true, maxZoom: 16});
+    //     }
+    //     return findMeIcon;
+    //   }
+    // });
+    // map.addControl(new findMe());
       
 		function onLocationFound(e) {
 			var radius = e.accuracy / 2;
@@ -78,7 +78,7 @@
 		map.on('locationfound', onLocationFound);
 		map.on('locationerror', onLocationError);
 
-		// map.locate({setView: true, maxZoom: 16});
+		map.locate({setView: true, maxZoom: 16});
 	</script>
 </body>
 </html>
