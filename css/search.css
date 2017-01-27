@@ -29,7 +29,16 @@
   color:#ECECEC;
 }
 
+.project {
+  margin: 25px 0px;
+  padding: 10px 15px;
+  border: 1px dotted #bfbfbf;
+}
 
+.project h3 a {
+  margin-left: 10px;
+  font-size: 0.7em;
+}
 
 li {
   transition-property: margin, background-color, border-color;

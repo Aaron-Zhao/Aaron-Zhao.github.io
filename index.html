@@ -1,32 +1,3 @@
-<!-- css, js source code: http://codepen.io/robooneus/pen/ivdFH -->
-<!-- Tutorial of the source code: http://www.robsawyer.me/blog/2013/07/10/lightweight-jquery-searchfilter-tutorial/ -->
-<!-- The styling and script from the source code was modified in this version to satisfy the needs of this web app -->
-<!--
-MIT LICENSE
-
-Copyright (c) 2014 - Aaron - http://codepen.io/robooneus/pen/ivdFH
-
-Permission is hereby granted, free of charge, to any person 
-obtaining a copy of this software and associated documentation 
-files (the "Software"), to deal in the Software without restriction,
- including without limitation the rights to use, copy, modify, 
-merge, publish, distribute, sublicense, and/or sell copies of 
-the Software, and to permit persons to whom the Software is 
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall 
-be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
-DEALINGS IN THE SOFTWARE.
-
--->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -40,88 +11,67 @@ DEALINGS IN THE SOFTWARE.
 		<link rel="stylesheet" type="text/css" media="screen" href="css/search.css">
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans|Maven+Pro:500' rel='stylesheet' type='text/css'>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
-		<script src="js/search.js"></script>
 		<script src="js/backToTop.js"></script>
 
 		<title>Aaron Zhao GitHub Page</title>
 	</head>
 
 	<body>
-		<!-- HEADER -->
 		<div id="header_wrap" class="outer">
 			<header class="inner">
 				<h1 id="project_title">Aaron Zhao</h1>
 			    <h2 id="project_tagline">Software Developer, Anchorage, AK</h2>
+				<p>Crafting a beautiful product requires patience, dedication, thoughtfulness, and passion.</p>
 				<a href="mailto:yujianzhao2013@gmail.com?Subject=From%20GitHub%20Page" target="_top">yujianzhao2013@gmail.com</a>
-				<a id="forkme_banner" href="https://github.com/Aaron-Zhao">View My GitHub Profile</a>
-				<a id="linkedin_banner" href="https://www.linkedin.com/in/yujianzhao">View My LinkedIn Profile</a>
+				<br>
+				<a id="cv_banner" href="https://www.linkedin.com/in/yujianzhao">Résumé</a>
+				<a id="linkedin_banner" href="https://www.linkedin.com/in/yujianzhao">LinkedIn</a>
+				<a id="forkme_banner" href="https://github.com/Aaron-Zhao">GitHub</a>
 				<a id="blog_banner" href="https://cswhiteboard.blogspot.com/">Blog</a>
 			</header>
 		</div>
-
-		<!-- MAIN CONTENT 
+ 
 		<div id="main_content_wrap" class="outer">
 			<section id="main_content" class="inner">
+				<h2>Personal Projects</h2>
+				<div class="project">
+					<h3>ng-gank
+						<a href="https://github.com/yujianzhao/ng-gank">[source]</a>
+						<a href="">[x]</a>
+					</h3>
+					<p>ng-gank is a web client for gank.io created using Angular 2. gank.io is a web service end point for submitting and retrieving daily curated tech articles and blogs.</p>
+				</div>
+				<div class="project">
+					<h3>Map Locator
+						<a href="https://github.com/Aaron-Zhao/aaron-zhao.github.io/blob/master/map.html">[source]</a>
+						<a href="https://yujianzhao.com/map">[app]</a>
+					</h3>
+					<p>Map Locator is a simple implemention of "Find Me" locator using Leaft Map.</p>
+				</div>
+				<div class="project">
+					<h3>new-grad-offers
+						<a href="https://github.com/Aaron-Zhao/new-grad-offers">[source]</a>
+						<a href="http://tech-job-offers.herokuapp.com/">[app]</a>
+					</h3>
+					<p>new-grad-offers provides basic insights of tech job offers for new graduates and internships using Chart.js and D3.</p>
+				</div>
+				<div class="project">
+					<h3>Popular Names
+						<a href="https://github.com/Aaron-Zhao/popular-names">[source]</a>
+						<a href="https://popularnames.herokuapp.com/">[app]</a>
+					</h3>
+					<p>Popular Names is a web app that queries popularity of baby names.</p>
+				</div>
+				<div class="project">
+					<h3>Simple Loan Calculator
+						<a href="">[x]</a>
+						<a href="https://play.google.com/store/apps/details?id=com.tools.simpleloancalculator">[app]</a>
+					</h3>
+					<p>Simple Loan Calculator is an Android App that calcuates loan term and monthly payment based on your inputs.</p>
+				</div>
+
 			</section>
-		</div>-->
-
-		<section class="list-wrap">
-			<div class="inner">
-				<h2 id="project_title">Projects</h2>
-				<label for="search-text">Search by Title or Technology</label>
-				<input type="text" id="search-text" placeholder="search" class="search-box">
-				<span class="list-count"></span>
-				<span class="item-count"></span>
-
-				<ul id="list">
-					<li class="dinner">
-						<h2>Popular Names</h2>
-						<p><a href="https://popularnames.herokuapp.com/">Popular Names</a> is a web app to see the popularity of personal names.</p>
-						<a>Node.js</a><br>
-						<a>JavaScript</a><br>
-						<a>JQuery</a><br>
-					</li>
-					
-					<li class="bf">
-						<h2>Simple Loan Calculator</h2>
-						<p><a href="https://play.google.com/store/apps/details?id=com.tools.simpleloancalculator&hl=en">Simple Loan Calculator</a> is an Android App that calculates monthly payment and interest cost for fixed total payment loans, based on user inputs.</p>
-						<a>Java</a><br>
-						<a>Android</a><br>
-					</li>
-					
-					<li class="lunch">
-						<h2>GCI Documentation System</h2>
-						<p>The system is a highly configurable enterprise system for managing and documenting engineering and regulatory processes and documents.</p>
-						<a>Java</a><br>
-						<a>MySql</a><br>
-						<a>MS SSRS, SSIS</a>
-					</li>
-
-					<li class="dinner">
-						<h2>Alaska Railroad Intranet Web Project</h2>
-						<p>Assisted in the development of a single Alaska Railroad Web Portal with the goal of eliminating multiple web portals.</p>
-						<a>C#</a><br>
-						<a>.NET</a><br>
-						<a>DotNetNuke</a><br>
-						<a>MS SQL Server</a><br>
-						<a>JavaScript</a><br>
-						<a>JQuery</a><br>
-					</li>
-					
-					<li class="bf">
-						<h2>Anchorage EWeek Competition Scoring App</h2>
-						<p>The scoring web app is an on-line scoring system for Anchorage EWeek Annual Competition at UAA. It generates reports after the recording of event scores</p>
-						<a>MS Azure</a><br>
-						<a>ASP.NET</a><br>
-						<a>C#</a><br>
-						<a>SQL</a><br>
-						<a>JavaScript</a><br>
-					</li>
-
-					<span class="empty-item">no results</span>
-				</ul>
-			</div>
-		</section>
+		</div>
 
 		<a href="#0" class="cd-top">Top</a>
 		
