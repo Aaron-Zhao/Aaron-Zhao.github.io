@@ -93,9 +93,9 @@ li {
   z-index:2;
 }
 
-.bf { border-left:5px solid #297A29;}
-.lunch { border-left:5px solid #CF7C00;}
-.dinner { border-left:5px solid #163061;}
+.green { border-left:5px solid #297A29;}
+.orange { border-left:5px solid #CF7C00;}
+.blue { border-left:5px solid #163061;}
 
 li p { text-align: center; }
 
