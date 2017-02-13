@@ -1,0 +1,38 @@
+<div style='background:#FFFFFF; font-family: Courier New, Courier; font-size: 10pt; COLOR: #000000; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;'><strong><font color='#7f0055'>package</font></strong>&nbsp;Question1_1;
+<br/>
+<br/><strong><font color='#7f0055'>public</font></strong>&nbsp;<strong><font color='#7f0055'>class</font></strong>&nbsp;Question&nbsp;{
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>public</font></strong>&nbsp;<strong><font color='#7f0055'>static</font></strong>&nbsp;<strong><font color='#7f0055'>boolean</font></strong>&nbsp;isUniqueChars(String&nbsp;str)&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>if</font></strong>&nbsp;(str.length()&nbsp;>&nbsp;128)&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>return</font></strong>&nbsp;<strong><font color='#7f0055'>false</font></strong>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>int</font></strong>&nbsp;checker&nbsp;=&nbsp;0;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>for</font></strong>&nbsp;(<strong><font color='#7f0055'>int</font></strong>&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;<&nbsp;str.length();&nbsp;i++)&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>int</font></strong>&nbsp;val&nbsp;=&nbsp;str.charAt(i)&nbsp;-&nbsp;<font color='#2a00ff'>'a'</font>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>if</font></strong>&nbsp;((checker&nbsp;&&nbsp;(1&nbsp;<<&nbsp;val))&nbsp;>&nbsp;0)&nbsp;<strong><font color='#7f0055'>return</font></strong>&nbsp;<strong><font color='#7f0055'>false</font></strong>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;checker&nbsp;|=&nbsp;(1&nbsp;<<&nbsp;val);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>return</font></strong>&nbsp;<strong><font color='#7f0055'>true</font></strong>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>public</font></strong>&nbsp;<strong><font color='#7f0055'>static</font></strong>&nbsp;<strong><font color='#7f0055'>boolean</font></strong>&nbsp;isUniqueChars2(String&nbsp;str)&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>if</font></strong>&nbsp;(str.length()&nbsp;>&nbsp;128)&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>return</font></strong>&nbsp;<strong><font color='#7f0055'>false</font></strong>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>boolean</font></strong>[]&nbsp;char_set&nbsp;=&nbsp;<strong><font color='#7f0055'>new</font></strong>&nbsp;<strong><font color='#7f0055'>boolean</font></strong>[128];
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>for</font></strong>&nbsp;(<strong><font color='#7f0055'>int</font></strong>&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;<&nbsp;str.length();&nbsp;i++)&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>int</font></strong>&nbsp;val&nbsp;=&nbsp;str.charAt(i);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>if</font></strong>&nbsp;(char_set[val])&nbsp;<strong><font color='#7f0055'>return</font></strong>&nbsp;<strong><font color='#7f0055'>false</font></strong>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char_set[val]&nbsp;=&nbsp;<strong><font color='#7f0055'>true</font></strong>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>return</font></strong>&nbsp;<strong><font color='#7f0055'>true</font></strong>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>public</font></strong>&nbsp;<strong><font color='#7f0055'>static</font></strong>&nbsp;<strong><font color='#7f0055'>void</font></strong>&nbsp;main(String[]&nbsp;args)&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String[]&nbsp;words&nbsp;=&nbsp;{<font color='#2a00ff'>"abcde"</font>,&nbsp;<font color='#2a00ff'>"hello"</font>,&nbsp;<font color='#2a00ff'>"apple"</font>,&nbsp;<font color='#2a00ff'>"kite"</font>,&nbsp;<font color='#2a00ff'>"padle"</font>};
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><font color='#7f0055'>for</font></strong>&nbsp;(String&nbsp;word&nbsp;:&nbsp;words)&nbsp;{
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(word&nbsp;+&nbsp;<font color='#2a00ff'>":&nbsp;"</font>&nbsp;+&nbsp;isUniqueChars(word)&nbsp;+&nbsp;<font color='#2a00ff'>"&nbsp;"</font>&nbsp;+&nbsp;isUniqueChars2(word));
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br/>
+<br/>}<div style='text-align:right;BORDER-TOP: #ccc 1px dashed'><a href="http://www.togotutor.com/code-to-html/java-to-html.php" target="_blank">Code Formatted by ToGoTutor</a></div></div>
