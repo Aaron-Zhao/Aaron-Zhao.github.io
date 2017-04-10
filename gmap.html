@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Google Map</title>
+    <style>
+			body {
+			padding: 0;
+			margin: 0;
+			}
+			html, body, #map {
+			height: 100%;
+			}
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+
+      function addLocationButton(map, marker) 
+      {
+          var controlDiv = document.createElement('div');
+
+          var firstChild = document.createElement('button');
+          firstChild.style.backgroundColor = '#fff';
+          firstChild.style.border = 'none';
+          firstChild.style.outline = 'none';
+          firstChild.style.width = '28px';
+          firstChild.style.height = '28px';
+          firstChild.style.borderRadius = '2px';
+          firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+          firstChild.style.cursor = 'pointer';
+          firstChild.style.marginRight = '10px';
+          firstChild.style.padding = '0px';
+          firstChild.title = 'Your Location';
+          controlDiv.appendChild(firstChild);
+
+          var secondChild = document.createElement('div');
+          secondChild.style.margin = '5px';
+          secondChild.style.width = '18px';
+          secondChild.style.height = '18px';
+          secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-1x.png)';
+          secondChild.style.backgroundSize = '180px 18px';
+          secondChild.style.backgroundPosition = '0px 0px';
+          secondChild.style.backgroundRepeat = 'no-repeat';
+          secondChild.id = 'findme';
+          firstChild.appendChild(secondChild);
+
+          google.maps.event.addListener(map, 'dragend', function() {
+              $('#findme').css('background-position', '0px 0px');
+          });
+
+          firstChild.addEventListener('click', function() {
+              var imgX = '0';
+              var animationInterval = setInterval(function(){
+                  if(imgX == '-18') imgX = '0';
+                  else imgX = '-18';
+                  $('#findme').css('background-position', imgX+'px 0px');
+              }, 500);
+              if(navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition(function(position) {
+                      var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                      marker.setPosition(latlng);
+                      map.setCenter(latlng);
+                      clearInterval(animationInterval);
+                      $('#findme').css('background-position', '-144px 0px');
+                  });
+              }
+              else{
+                  clearInterval(animationInterval);
+                  $('#findme').css('background-position', '0px 0px');
+              }
+          });
+
+          controlDiv.index = 1;
+          map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
+      }
+
+      function initialize() {
+        var anchorage = {lat: 61.215299, lng: -149.895440};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: anchorage,
+          zoom: 14
+        });
+
+        // var panorama = new google.maps.StreetViewPanorama(
+        //     document.getElementById('pano'), {
+        //       position: fenway,
+        //       pov: {
+        //         heading: 34,
+        //         pitch: 10
+        //       }
+        //     });
+        // map.setStreetView(panorama);
+
+        var infowindow = new google.maps.InfoWindow();
+
+        function makeInfoWindowEvent(map, infowindow, contentString, marker) {
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(contentString);
+            infowindow.open(map, marker);
+          });
+        }
+        
+        // show markers around me example
+        function showMeAround(lat, lng, range) {
+          $.get('http://localhost:3000/api/events/location/lat/'+lat+'/lng/'+lng+'/range/'+range, function(result) {
+            var sites = result.values || [];
+            var markers = [];
+
+            for(let i in sites) {
+              var icon = {
+                url: 'leaf-green.png', // marker url
+                scaledSize: new google.maps.Size(19, 47.5), // scaled size
+                origin: new google.maps.Point(0, 0), // origin
+                anchor: new google.maps.Point(11, 47) // anchor
+              };
+              var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(sites[i].lat_decimal, sites[i].long_decimal),
+                icon: icon,
+                map: map
+              });
+
+              makeInfoWindowEvent(map, infowindow, sites[i].location_name , marker);
+
+              markers.push(marker);
+            }
+
+            // auto center
+            // create a new viewpoint bound
+            var bounds = new google.maps.LatLngBounds();
+            // go through each...
+            $.each(markers, function (index, marker) {
+              bounds.extend(marker.position);
+            });
+            // fit these bounds to the map
+            map.fitBounds(bounds);
+          });
+        };
+
+        var myMarker = new google.maps.Marker({
+          map: map,
+        });
+
+        google.maps.event.addListener(myMarker, 'click', function() {
+          infowindow.setContent("You're here.");
+          infowindow.open(map, myMarker);
+        });
+
+        //getUserLocation();
+        addLocationButton(map, myMarker);
+      }
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOdNAyawI0hh4dl27czmxjcc7ZsJXgjJc&callback=initialize">
+    </script>
+  </body>
+</html>
